@@ -11,7 +11,8 @@ export const sections = [
     title: "Kamogelo Mosia",
     content: "Building scalable web solutions with a focus on user experience and business impact.",
     showButton: true,
-    buttonText: "View My Work",
+    buttonText: "View Portfolio",
+    buttonLink: "/projects",
   },
   {
     id: "about",
@@ -32,12 +33,34 @@ export const sections = [
       "HTML, CSS, JavaScript, PHP, Python. Experienced with Zoho CRM, Git, and full-stack development. Strong problem-solving abilities with a focus on creating user-focused applications.",
   },
   {
+    id: "work",
+    title: "View My Work",
+    content: "Explore my portfolio featuring full-stack web applications, from concept to deployment.",
+    showButton: true,
+    buttonText: "Visit Full Portfolio",
+    showPhoneMockup: true,
+  },
+  {
     id: "projects",
     title: "Featured Projects",
     content:
       "Portfolio Website (kamocodes.xyz), DrSalumu Medical Website, Math Mentor, and Todo Application. Each project demonstrates end-to-end development from concept to deployment.",
     showButton: true,
-    buttonText: "Visit Portfolio",
+    buttonText: "View All Projects",
+    buttonLink: "/projects",
+    showPhoneMockups: true,
+    mockups: [
+      {
+        type: "website",
+        url: "https://kamocodes.xyz",
+        title: "Portfolio Website",
+      },
+      {
+        type: "app",
+        url: "https://drsalumu.co.za",
+        title: "DrSalumu App",
+      },
+    ],
   },
   {
     id: "contact",

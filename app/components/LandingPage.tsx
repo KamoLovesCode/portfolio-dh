@@ -26,6 +26,13 @@ export default function LandingPage() {
     setActiveSection(index)
   }
 
+  const handleNavigateToSection = (sectionId: string) => {
+    const index = sections.findIndex((s) => s.id === sectionId)
+    if (index !== -1) {
+      setActiveSection(index)
+    }
+  }
+
   return (
     <Layout>
       {/* Navigation dots */}
@@ -71,7 +78,12 @@ export default function LandingPage() {
       {/* Sections with AnimatePresence for smooth transitions */}
       <div className="h-screen w-full overflow-hidden">
         <AnimatePresence mode="wait">
-          <Section key={sections[activeSection].id} {...sections[activeSection]} isActive={true} />
+          <Section
+            key={sections[activeSection].id}
+            {...sections[activeSection]}
+            isActive={true}
+            onNavigate={handleNavigateToSection}
+          />
         </AnimatePresence>
       </div>
     </Layout>
