@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import type { SectionProps } from "../types"
 import PhoneMockup from "./ui/phone-mockup"
 import AppMockup from "./ui/app-mockup"
@@ -14,6 +15,7 @@ export default function Section({
   isActive,
   showButton,
   buttonText,
+  buttonLink,
   showPhoneMockup,
   showPhoneMockups,
   mockups,
@@ -21,10 +23,11 @@ export default function Section({
   onNavigate,
 }: SectionProps) {
   const handleButtonClick = () => {
-    if (navigateTo && onNavigate) {
+    if (buttonLink) {
+      // Navigate to another page
+      return
+    } else if (navigateTo && onNavigate) {
       onNavigate(navigateTo)
-    } else if (id === "hero" || id === "projects" || id === "work") {
-      window.open("https://kamocodes.xyz", "_blank")
     } else if (id === "contact") {
       window.location.href = "mailto:kamogelomosiah@gmail.com"
     }
@@ -76,14 +79,26 @@ export default function Section({
               transition={{ duration: 0.5, delay: 0.5 }}
               className="mt-8"
             >
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-[#FF4D00] bg-transparent border-[#FF4D00] hover:bg-[#FF4D00] hover:text-black transition-colors"
-                onClick={handleButtonClick}
-              >
-                {buttonText}
-              </Button>
+              {buttonLink ? (
+                <Link href={buttonLink}>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="text-[#FF4D00] bg-transparent border-[#FF4D00] hover:bg-[#FF4D00] hover:text-black transition-colors"
+                  >
+                    {buttonText}
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-[#FF4D00] bg-transparent border-[#FF4D00] hover:bg-[#FF4D00] hover:text-black transition-colors"
+                  onClick={handleButtonClick}
+                >
+                  {buttonText}
+                </Button>
+              )}
             </motion.div>
           )}
           {id === "contact" && (

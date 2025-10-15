@@ -14,6 +14,7 @@ export interface Section {
   showButton?: boolean
   buttonText?: string
   navigateTo?: string
+  buttonLink?: string // Added buttonLink for external page navigation
   showPhoneMockup?: boolean
   showPhoneMockups?: boolean
   mockups?: Mockup[]
